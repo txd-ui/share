@@ -1,0 +1,33 @@
+<!--pages/login/index.wxml-->
+<view class="imgage_top">
+<image src="../../style/img/index.png"></image>
+  <view class="text">石分达人报名系统</view>
+</view>
+<view class="xian">
+  <van-divider />
+</view>
+<view class="title">
+  即将石分达人报名系统,请确认是本人操作
+</view>
+
+<view class="buttom">
+  <van-icon style="vertical-align: middle" name="stop" />
+  <text style="vertical-align: middle; margin-left:20rpx">使用您的手机号登陆该应用</text>
+</view>
+<view class="buttom_button">
+<van-button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" block>确认登陆</van-button>
+      <van-dialog id="van-dialog" />
+</view>
+
+<van-toast id="van-toast" />
+<van-popup show="{{ show }}" >
+<view class="shou">
+<view class="too_show">微信授权</view>
+<view class="conter">
+<view> <image src="../../style/img/index.png"></image> </view>
+<view class="fong">石分达人报名系统申请获得以下权限：</view>
+</view>
+  <view class="tt"><van-icon style="vertical-align: middle" name="stop" />获取你的公开信息（昵称丶头像等）</view>
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="bom"> 一键授权 </button>
+</view>
+</van-popup>

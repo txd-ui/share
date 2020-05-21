@@ -1,0 +1,107 @@
+<!--pages/rankingList/index.wxml-->
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="小区排名" >
+  <view class="top_block">
+  <view class="topNav">
+  <view class="left">{{time}}年{{times}}月</view>
+  <view class="right"  bindtap="showPopup">
+    <image src="../../style/img/time.png"></image>
+  </view>
+
+  </view>
+  <view class="bottom_nav">
+  <view class="one">
+  <view class="one-size">本月排名</view>
+  <view class="one-sizes"  wx:if="{{all[0].residentialAreasRanking}}">{{all[0].residentialAreasRanking}}</view>
+  <view class="one-sizes" wx:if="{{!all[0].residentialAreasRanking}}">0</view>
+  </view>
+  <view class="two">
+  <image src="{{userImg}}"></image>
+  <view style="font-size:30rpx">{{userName}}</view>
+  </view>
+  <view class="three">
+  <view class="one-size">本月积分</view>
+  <view class="one-sizes"  wx:if="{{all[0].points}}">{{all[0].points}}</view>
+  <view class="one-sizes" wx:if="{{!all[0].points}}">0</view>
+  </view>
+  </view>
+  </view>
+  <!-- 背景图 -->
+  <view class="button_back">
+  <view class="topNavs">
+  <view class="one">排名</view>
+  <view class="one">用户</view>
+  <view class="one">积分</view>
+  </view>
+    <view class="topNavs_size" wx:for="{{allList}}">
+    <view class="ones" wx:if="{{item.ranking == 1}}"><image src="../../style/img/one.png"></image></view>
+    <view class="ones" wx:if="{{item.ranking == 2}}"><image src="../../style/img/two.png"></image></view>
+    <view class="ones" wx:if="{{item.ranking == 3}}"><image src="../../style/img/three.png"></image></view>
+   <view class="ones" wx:if="{{item.ranking != 1 && item.ranking!=2 && item.ranking !=3}}">{{item.ranking}}</view>
+  <view class="ones">{{item.nickName}}</view>
+  <view class="ones">{{item.points}}</view>
+  </view>
+  </view>
+
+
+  </van-tab>
+  <van-tab title="全区排名"  >
+    <view class="top_block">
+  <view class="topNav">
+  <view class="left">{{time}}年{{times}}月</view>
+  <view class="right" bindtap="showPopup">
+    <image  src="../../style/img/time.png"></image>
+  </view>
+
+  </view>
+  <view class="bottom_nav">
+  <view class="one">
+  <view class="one-size">本月排名</view>
+  <view class="one-sizes" wx:if="{{all[0].ranking}}">{{all[0].ranking}}</view>
+  <view class="one-sizes" wx:if="{{!all[0].ranking}}">0</view>
+  </view>
+  <view class="two">
+  <image src="{{userImg}}"></image>
+  <view style="font-size:30rpx">{{userName}}</view>
+  </view>
+  <view class="three">
+  <view class="one-size">本月积分</view>
+  <view class="one-sizes" wx:if="{{all[0].points}}">{{all[0].points}}</view>
+  <view class="one-sizes" wx:if="{{!all[0].points}}">0</view>
+  </view>
+  </view>
+  </view>
+  <!-- 背景图 -->
+  <view class="button_back">
+  
+  <view class="topNavs">
+  <view class="one">排名</view>
+  <view class="one">用户</view>
+  <view class="one">积分</view>
+  </view>
+    <view class="topNavs_size" wx:for="{{allList}}">
+  <view class="ones" wx:if="{{item.ranking == 1}}"><image src="../../style/img/one.png"></image></view>
+    <view class="ones" wx:if="{{item.ranking == 2}}"><image src="../../style/img/two.png"></image></view>
+    <view class="ones" wx:if="{{item.ranking == 3}}"><image src="../../style/img/three.png"></image></view>
+  <view class="ones" wx:if="{{item.ranking != 1 && item.ranking!=2 && item.ranking !=3}}">{{item.ranking}}</view>
+  <view class="ones">{{item.nickName}}</view>
+  <view class="ones">{{item.points}}</view>
+  </view>
+  </view>
+  </van-tab>
+</van-tabs>
+
+<view style="width:100%">
+<van-popup show="{{ show }}"   position="bottom"  >
+<van-datetime-picker
+bind:cancel="onClose" bind:confirm="onConfirm"
+  type="year-month"
+  value="{{ currentDate }}"
+
+ 
+/>
+
+</van-popup>
+</view>
+
+

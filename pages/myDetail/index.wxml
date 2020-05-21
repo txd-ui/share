@@ -1,0 +1,30 @@
+<!--pages/myPage_pk/index.wxml-->
+<!-- 上面的布局 -->
+<view class="top_block">
+   <view class="left_block">
+   <view class="fen" wx:if="{{monList}}">{{monList}}次</view>
+   <view class="fen" wx:if="{{!monList}}">0次</view>
+   <view class="ka">本月打卡</view>
+   </view>
+   <view class="right_block">
+      <view  class="fen" wx:if="{{userLsit[0].points}}">{{userLsit[0].points}}分</view>
+      <view  class="fen" wx:if="{{!userLsit[0].points}}">0分</view>
+   <view class="ka">本月积分</view>
+   </view>
+  </view>
+
+
+<view class="buttom_block">
+  <view class="align_text">日期</view>
+  <view class="align_text">小区名称</view>
+  <view class="align_text">积分</view>
+</view>
+<!-- 第一个 -->
+
+  <view class="buttom_block_one" wx:for="{{allList}}">
+    <view class="align_text_one" >  {{item.uploadTime}}</view>
+    <view class="align_text_one">  {{item.residentialAreas}}</view>
+    <view class="align_text_one" > + {{item.points}}</view>
+  </view>
+  <van-divider />
+

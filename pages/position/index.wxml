@@ -1,0 +1,23 @@
+<!--pages/position/index.wxml-->
+<view class="top_title">上传打卡</view>
+<view class="conter_img">
+  <image src="../../style/img/back.jpg"></image>
+</view>
+
+<view class="container">
+  <view class=" big_imgs" wx:if="{{!img}}">
+    <view class="conter_button" bindtap="chooseimage">
+      <image src="../../style/img/jia.png"></image>
+    </view>
+
+  </view>
+  <view class="zhong" wx:if="{{img}}">
+    <image class="abc_img" src="../../style/img/del.png" bindtap="yincang"></image>
+    <image src="{{img}}" catchTap="chooseImageTap" mode="aspectFit" />
+  </view>
+</view>
+<view>
+  <button class="button_bom" bindtap="sumbit">打卡</button>
+  <van-dialog id="van-dialog" />
+  <van-toast id="van-toast" />
+</view>

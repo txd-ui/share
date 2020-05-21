@@ -1,0 +1,92 @@
+/* pages/myPage_pk/index.wxss */
+
+page {
+  background: #f6f6f6;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+}
+
+.top_block {
+
+  height: 260rpx;
+  background: #fff;
+  border: 1px solid #fff;
+  display: flex;
+  padding-top: 75rpx;
+  box-sizing: border-box;
+  padding-bottom: 75rpx;
+
+}
+.left_block{
+ flex: 1;
+ border-right: 1px solid #d5d5d5;
+ text-align: center;
+
+}
+.right_block{
+   flex: 1;
+   text-align: center;
+}
+
+.my_PK {
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  font-family: 苹方常规;
+  font-size: 28rpx;
+}
+
+.my_Number {
+  font-size: 50rpx;
+}
+
+.buttom_block {
+  height: 80rpx;
+  border-top: 1px solid #eae9e9;
+  border-bottom: 3rpx solid #eae9e9;
+  display: flex;
+  background: #fff;
+}
+
+.align_text {
+  flex: 1;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  font-family: '苹方粗体';
+}
+
+.buttom_block_one {
+ height: 80rpx;
+  border-top: 1px solid #eae9e9;
+  display: flex;
+  background: #fff;
+}
+
+.align_text_one {
+  flex: 1;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 36rpx;
+  color: #333;
+  font-family: '苹方粗体';
+  overflow: hidden;
+}
+
+.van-divider{
+  margin: var(--divider-margin,0 30rpx) !important;
+  
+}
+.fen{
+  font-family: '苹方常规';
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #006fb9;
+  margin-bottom: 20rpx;
+}
+.ka{
+  color: #979797;
+  font-size: 30rpx;
+}

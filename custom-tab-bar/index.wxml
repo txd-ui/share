@@ -1,0 +1,31 @@
+<!--miniprogram/custom-tab-bar/index.wxml-->
+<!-- <cover-view class="tabbar_box">
+
+  <cover-view  wx:if="{{item.isSpecial == true}}"  class="tabbar_nav" wx:for="{{list}}" wx:key="index" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
+    <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
+  </cover-view>
+
+</cover-view> -->
+
+
+
+
+
+<view class="tabbar_box">
+  <view wx:for="{{list}}" data-index="{{index}}" wx:key="{{index}}" bindtap="switchTab">
+
+    <view bindtap="tiao" wx:if="{{item.isSpecial == true}}" class="tabbar_nav" hover-class="none" >
+      <view class='special-wrapper'>
+        <image class="tabbar_icon" src="{{item.iconPath}}"></image>
+      </view>
+      <image class='special-text-wrapper' ></image>
+      <text class="fonts" style="font-size:28rpx">{{item.text}}</text>
+    </view>
+
+    <navigator wx:else class="tabbar_nav" hover-class="none" url="{{item.pagePath}}" style="color:{{item.selected ? tabbar.selectedColor : tabbar.color}}" open-type="switchTab">
+      <image class="tabbar_icon" src="{{selected === index ?  item.selectedIconPath : item.iconPath }}"></image>
+      <text  class="{{selected == index ?  'b' : 'a' }}">{{item.text}}</text>
+    </navigator>
+  </view>
+</view>

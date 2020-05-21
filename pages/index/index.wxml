@@ -1,0 +1,24 @@
+<block >
+<view class="button_border">
+<view class="top_title">阅读拿积分</view>
+<view class="progress">阅读进度</view>
+<van-progress  color="#3079d4" percentage="{{readState}}" stroke-width="20rpx" />
+
+</view>
+<view  wx:for="{{allArr}}">
+<view class="conter_block" data-id="{{item.id}}" bindtap="deilIndex">
+<view class="conter_block_img" style="background:url({{item.picture1}}); border-radius: 20rpx 20rpx 0 0 ;  background-size:100% 100% ;   background-repeat: no-repeat" ></view>
+<view class="conter_block_size">
+{{item.title}}
+</view>
+<view  style=" width:120rpx; height:120rpx; float:left; background:url({{item.picture2}});   background-size:100% 100% ;   background-repeat: no-repeat;   margin-top: 22rpx; margin-left:27rpx;"  ></view>
+<view class="conter_block_time">
+{{item.createTime}}
+</view>
+</view>
+
+
+</view>
+
+
+</block>

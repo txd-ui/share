@@ -1,0 +1,40 @@
+<view class="top_title" wx:if="{{sure == true}}">
+  今 日 已 打 卡 </view>
+<view class="top_title"   wx:if="{{sure == false}}">
+  今 日 未 打 卡 </view>
+<view class="conter_img">
+  <image src="../../style/img/back.jpg"></image>
+</view>
+
+<view class="container">
+  <view class=" big_imgs" wx:if="{{!img}}">
+    <view class="conter_button" bindtap="chooseimage">
+      <image src="../../style/img/jia.png"></image>
+    </view>
+
+  </view>
+  <view class="zhong" wx:if="{{img}}">
+    <image class="abc_img" src="../../style/img/del.png" bindtap="yincang"></image>
+    <image src="{{img}}" catchTap="chooseImageTap" mode="aspectFit" />
+  </view>
+</view>
+<view>
+  <!-- <poster id="poster" hide-loading="{{false}}" preload="{{false}}" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+  </poster> -->
+  <view class='imagePathBox' hidden="{{maskHidden == false}}">
+    <image src="{{imagePath}}" class='shengcheng'></image>
+    <image style="  position: absolute;  width: 50rpx; height: 50rpx; top: 30rpx; right: 35rpx; z-index: 10" src="../../style/img/del.png" bindtap="hideImg"></image>
+    <button class='baocun' bindtap='baocun'>保存相册</button>
+    <button class='baocun' bindtap='baocun'>保存相册</button>
+  </view>
+  <view hidden="{{maskHidden == false}}" class="mask"></view>
+  <view class="canvas-box">
+    <canvas style="width: 540px; height: 828px; position:fixed;top:9999px" canvas-id="mycanvas" />
+  </view>
+  <button class="button_bom" bindtap='formSubmit'>分享</button>
+  <button class="button_boms" bindtap="daka">打卡</button>
+  <van-toast id="van-toast" />
+
+</view>
+
+<van-dialog id="van-dialog" />

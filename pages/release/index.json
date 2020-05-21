@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "poster": "/miniprogram_dist/poster/index",
+    "van-dialog": "@vant/weapp/dialog/index"
+
+  }
+}

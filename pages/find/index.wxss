@@ -1,0 +1,131 @@
+/* pages/find/index.wxss */
+
+.big_block {
+  width: 100%;
+  height: 610rpx;
+  border-bottom: 1px solid #ccc;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.top_user {
+  width: 100%;
+  height: 90rpx;
+
+}
+
+.user_img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  float: left;
+    line-height: 80rpx;
+}
+.user_img image{
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  border-radius: 50%;
+}
+.user_img image fill { object-fit: fill; }
+ contain { object-fit: contain; }
+ cover { object-fit: cover; }
+ none { object-fit: none; }
+ scale-down { object-fit: scale-down; }
+
+.userfolat {
+  float: left;
+  margin-left: 30rpx;
+}
+
+.username {
+  font-size: 32rpx;
+  font-weight: bold;
+  font-family: '平方粗体';
+  color: #434c73;
+
+}
+
+.usersex {
+  width: 84rpx;
+  height: 36rpx;
+  background: #5fc8ff;
+  margin-top: 5rpx;
+  border-radius: 30rpx;
+  line-height: 36rpx;
+  text-align: center;
+}
+.usersexs {
+  width: 84rpx;
+  height: 36rpx;
+  background: #f36daf;
+  margin-top: 5rpx;
+  border-radius: 30rpx;
+  line-height: 36rpx;
+  text-align: center;
+}
+.usersex image{
+  width: 25rpx;
+  height: 25rpx;
+
+}
+.share {
+  float: right;
+}
+.share image{
+  width: 8rpx;
+  height: 44rpx;
+  margin-top: 5rpx;
+}
+.center_size{
+  width: 100%;
+    font-size: 28rpx;
+
+  font-family: '微软雅黑';
+  margin-bottom: 20rpx;
+  }
+  .big_img_center{
+    width: 710rpx;
+    height: 360rpx;
+ 
+  }
+  .big_img_center image{
+        width: 710rpx;
+    height: 360rpx;
+    border-radius: 20rpx;
+  }
+  .buttom_xin{
+    width: 100%;
+    height: 40rpx;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+  
+    margin-top: 15rpx;
+    font-size: 24rpx;
+    font-family: '苹方常规';
+  }
+  .buttom_xin image{
+    width: 18rpx;
+    height: 24rpx;
+    vertical-align: middle;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+  }
+  .buttom_font{
+    
+  }
+  .buyttom_but{
+    width: 124rpx;
+    height: 124rpx;
+    background: hsla(54, 85%, 53%, 0.78);
+    position: fixed;
+    bottom: 30rpx;
+    right: 30rpx;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 30rpx;
+    font-family: '苹方粗体';
+    padding-top: 15rpx;
+    box-sizing: border-box;
+  }
