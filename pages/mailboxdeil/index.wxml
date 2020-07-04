@@ -1,0 +1,5 @@
+<!--pages/mailboxdeil/index.wxml-->
+<view class="big_block">
+<import src="../wxParse/wxParse.wxml"/>
+<template style="margin-top:110rpx" is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>

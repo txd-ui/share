@@ -1,0 +1,45 @@
+.sureBtn{
+  width: 40%;
+  height: 80rpx;
+  background: red;
+  border-radius: 15rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 32rpx;
+  font-family: '苹方常规';
+  margin: 30rpx auto;
+  
+}
+button{
+  width: 40%;
+  height: 80rpx;
+  background: red;
+  border-radius: 15rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 32rpx;
+  font-family: '苹方常规';
+  margin: 30rpx auto;
+}
+
+.big_btn{
+  width: 100%;
+  display: flex;
+  margin-top: 60rpx
+}
+
+.btns{
+  width: 40%;
+  height: 80rpx;
+  background: #0752f7;
+  border-radius: 15rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 32rpx;
+  font-family: '苹方常规';
+  margin: 30rpx auto;
+  
+}

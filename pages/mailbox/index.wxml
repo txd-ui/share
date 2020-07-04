@@ -1,0 +1,10 @@
+<view class="block" wx:for="{{dataList}}"  bindtap="mailboxdeil" data-data="{{item.content}}" data-id="{{item.noticeID}}">
+    <image src="../../style/img/ssss.png" mode="aspectFit"></image>
+    <view class="center" >
+    <view class="title" style="color:{{item.readState == false? '#333': '#ccc'}}" >{{item.title}}</view>
+    <view class="contont">{{item.content}}</view>
+    </view>
+
+    <view class="right">{{item.publishTime}}</view>
+
+</view>

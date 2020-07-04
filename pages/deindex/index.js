@@ -1,5 +1,7 @@
 const api = require("../../service/http.js");
 import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog.js';
+const WxParse = require('../wxParse/wxParse.js')
+const txvContext = requirePlugin("tencentvideo");
 Page({
   /**
    * 页面的初始数据
@@ -8,7 +10,9 @@ Page({
     flages: false,
     datas: [],
     timer: '',//定时器名字
-    countDownNum: '10'//倒计时初始值
+    countDownNum: '10',//倒计时初始值
+    videoPath:'',
+    readState:'',
   },
 
   onShow: function () {
@@ -16,10 +20,25 @@ Page({
     this.setData({
       countDownNum: 10
     })
-    //什么时候触发倒计时，就在什么地方调用这个函数
-    this.countDown();
-
+  
     this.getAllarrs()
+  },
+  onLoad:function(){
+    this.setData({
+      readState: wx.getStorageSync('readState')
+    })
+    if (this.data.readState == 1){
+    }else{
+          //什么时候触发倒计时，就在什么地方调用这个函数
+      this.countDown();
+    }
+    var article = wx.getStorageSync('data')
+    WxParse.wxParse('article', 'html', article, this, 5);
+    if (wx.getStorageSync('videoPath')!=''){
+      this.setData({
+        videoPath: wx.getStorageSync('videoPath')
+      })
+    }
   },
   onUnload: function () {
     clearInterval(this.data.timer)
@@ -29,14 +48,13 @@ Page({
   },
   getAllarrs() {
     api.request('POST', '/volunteer/getArticleListByID', {
-      id: wx.getStorageSync('id')
+      articleID: wx.getStorageSync('id')
     }).then(res => {
       var { data: results } = res
 
       this.setData({
         datas: results.results
       })
-      console.log(this.data.datas)
     })
   },
   countDown: function () {
@@ -66,27 +84,16 @@ Page({
                 message: '该文章已阅读！',
                 asyncClose: true,
                 showConfirmButton: false,
-                width:'200px'
-              })
-              setTimeout(() => {
-                Dialog.close();
-              }, 3000);
-            } else if (data.results[0].readState == 3) {
-              Dialog.alert({
-                title: '温馨提示',
-                message: '三篇已完成，获得一积分',
-                asyncClose: true,
-                showConfirmButton: false,
                 width: '200px'
               })
               setTimeout(() => {
                 Dialog.close();
               }, 3000);
-            }
+            } 
             else if (data.msg == '操作成功') {
               Dialog.alert({
                 title: '温馨提示',
-                message: '今天已阅读' + data.results[0].readState + '篇文章 , 三篇完成后，获得一积分',
+                message: '阅读成功！ 获得1达人值和1石分宝！',
                 asyncClose: true,
                 showConfirmButton: false,
                 width: '200px'

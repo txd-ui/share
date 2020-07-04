@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "van-progress": "@vant/weapp/progress/index",
+    "van-transition": "@vant/weapp/transition/index",
+    "calendar": "plugin://calendar/calendar",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-notify": "@vant/weapp/notify/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+      "van-dialog": "@vant/weapp/dialog/index"
+  }
+}

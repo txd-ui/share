@@ -1,0 +1,160 @@
+<view class="big_blck">
+  <image src="../../style/img/pai.jpg"></image>
+</view>
+
+<view class="top_img">
+  <image mode="aspectFit" src="../../style/img/jifen.png"></image>
+</view>
+<view class="font_block">
+  <view class="font_block_left">我的石分宝：{{sumlist[0].points}}</view>
+  <view class="font_block_right" bindtap="myLuckList">我的抽奖记录</view>
+</view>
+
+
+<view class="container-out">
+  <view class="circle" wx:for="{{circleList}}" style="top:{{item.topCircle}}rpx;left:{{item.leftCircle}}rpx;background-color: {{(index%2==0)?colorCircleFirst:colorCircleSecond}};"></view>
+  <view class="container-in">
+    <view class="content-out" wx:for="{{awardList}}" style="top:{{item.topAward}}rpx;left:{{item.leftAward}}rpx;background-color: {{(item.imageAwards==indexSelect)?colorAwardSelect:colorAwardDefault}};">
+      <image class="award-image" mode="aspectFit" src="{{item.imageAward}}"></image>
+    </view>
+    <view class="start-btn" bindtap="startGame" style=" background-color:{{isRunning?'#e7930a':'#ffe400'}}">
+      <view wx:if="{{sizeShow == 0}}">本次免费</view>
+      <view wx:if="{{sizeShow == 1}}">5石分宝</view>
+      <view wx:if="{{sizeShow == 2}}">10石分宝</view>
+      <view wx:if="{{sizeShow >= 3}}">暂无机会</view>
+      <view>立即抽奖</view>
+    </view>
+  </view>
+
+
+
+</view>
+
+
+
+<view class="buttom_luck_block">
+
+  <view class="yuan_block">
+    <view class="item_yuan">获</view>
+    <view class="item_yuan">奖</view>
+    <view class="item_yuan">达</view>
+    <view class="item_yuan">人</view>
+    <view class="item_yuan">名</view>
+    <view class="item_yuan">单</view>
+
+  </view>
+
+  <view class="txd">
+    <view class="buttom_luck_block_font_auto" style="top:-{{move}}px;">
+      <view class="buttom_luck_block_font" wx:for="{{detail}}" wx:key="index" data-index="{{index}}">
+        恭喜手机号为{{item.telephone}}用户获得
+        <span>{{item.prizeName}}</span>
+      </view>
+
+    </view>
+
+  </view>
+
+</view>
+
+<view class="buttom_luck_blocks">
+
+  <view class="yuan_blocks">
+    <view class="item_yuan">活</view>
+    <view class="item_yuan">动</view>
+    <view class="item_yuan">说</view>
+    <view class="item_yuan">明</view>
+  </view>
+
+    <view class="buttom_luck_block_fonts ">1.抽奖活动有三种：日抽奖、周抽奖及月抽奖。</view>
+    <view class="buttom_luck_block_fonts ">2.日抽奖所有用户每日均可参与；</view>
+    <view class="buttom_luck_block_fonts ">3.连续签到满一周，获得“周全勤”的用户可参与周抽奖；</view>
+    <view class="buttom_luck_block_fonts">4.连续签到满一月，获得“月全勤”的用户可参与月抽奖；</view>
+    <view  class="buttom_luck_block_fonts">5.所有抽奖活动抽奖上限均为三次，第一次免费，第二次花费5石分宝，第三次花费10石分宝。</view>
+    <view class="buttom_luck_block_fonts">6.用户可在个人中奖记录中查看中奖详情。</view>
+    <view class="buttom_luck_block_fonts">7.石分宝一旦使用即被消耗。</view>
+    <view class="buttom_luck_block_fonts">8.此抽奖活动最终解释权归赛博星通所有。</view>
+</view>
+
+
+
+
+<view class="buttom_luck_blocks">
+
+  <view class="yuan_blocksss">
+    <view class="item_yuan">奖</view>
+    <view class="item_yuan">品</view>
+    <view class="item_yuan">发</view>
+    <view class="item_yuan">放</view>
+    <view class="item_yuan">领</view>
+    <view class="item_yuan">取</view>
+
+  </view>
+
+
+
+      <view class="buttom_luck_block_fonts" >1.请中奖用户填写收货信息，包括收件人姓名、手机号以及地址，便于奖品的发放与领取。</view>
+      <view class="buttom_luck_block_fonts" >2.实物奖品均在7日内发货，非实物奖品直接添加到用户账户。</view>
+      <view class="buttom_luck_block_fonts" >3.实物奖品发放地址与积分商城同步。</view>
+      <view class="buttom_luck_block_fonts" >4.实物奖品收货后、非实物奖品到账后，该物品在中奖记录中的显示将自动变更为“灰色标签”。</view>
+      <view class="buttom_luck_block_fonts" >5.如有疑问，请在系统留言区留言。</view>
+   
+
+
+
+</view>
+
+<!-- <van-overlay show="{{ show }}" bind:click="onClickHide">
+  <van-icon bindtap="close" color="#fff" size="30px" name="close" />
+  <view class="overlay_block">
+  <view class="overlay_block_title">温馨提示：您的奖品将在48小时内以快递的方式发送到您的手中,请耐心等待,感谢你的理解与支持</view>
+    <view class="font_tables" >
+      <view class="font_table_one">获奖时间</view>
+      <view class="font_table_two">所获物品</view>
+    </view>
+    <view class="font_table" wx:for="{{myLuckLists}}">
+      <view class="font_table_one">{{item.createTime}}</view>
+      <view class="font_table_two">{{item.prizeName}}</view>
+    </view>
+     <view class="font_table" wx:for="{{myLuckLists}}">
+      <view class="font_table_one">{{item.createTime}}</view>
+      <view class="font_table_two">{{item.prizeName}}</view>
+    </view>
+       <view class="font_table" wx:for="{{myLuckLists}}">
+      <view class="font_table_one">{{item.createTime}}</view>
+      <view class="font_table_two">{{item.prizeName}}</view>
+    </view>
+    <view class="pageChang">
+      <view class="pageChang_Number">
+          <view class="pageChang_Number_one" bindtap="upperPage">上一页</view>
+          <view class="pageChang_Number_two">{{pages}}/{{allPage}}</view>
+          <view class="pageChang_Number_three" bindtap="nextPage">下一页</view>
+      </view>
+    
+    </view>
+  </view>
+
+</van-overlay>
+wx:if="" -->
+
+<van-overlay show="{{changValtrue}}" bind:click="onClickHide">
+<view class="bottom_block_blue" >
+  <image src="{{selectImg}}" mode="aspectFit"></image>
+    <view class="selectImgFont" wx:if="{{selectImgFont =='谢谢参与'}}">太遗憾了您未抽中奖品~~</view>
+    <view class="selectImgFont" wx:if="{{selectImgFont !='谢谢参与'}}">恭喜您中奖啦！！！</view>
+  <view class="selectImgFont"  wx:if="{{selectImgFont !='谢谢参与'}}">获得{{selectImgFont}}</view>
+  <view class="selectImgFont"  wx:if="{{selectImgFont =='谢谢参与'}}">{{selectImgFont}}</view>
+
+</view>
+</van-overlay>
+
+<van-overlay show="{{changValtrues}}" bind:click="onClickHide">
+<view class="bottom_block_blue" >
+
+    <view class="selectImgFont" >{{changValtruesVal}}</view>
+ 
+
+</view>
+</van-overlay>
+
+

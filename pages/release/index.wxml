@@ -1,17 +1,55 @@
-<view class="top_title" wx:if="{{sure == true}}">
-  今 日 已 打 卡 </view>
-<view class="top_title"   wx:if="{{sure == false}}">
-  今 日 未 打 卡 </view>
-<view class="conter_img">
-  <image src="../../style/img/back.jpg"></image>
-</view>
-
 <view class="container">
-  <view class=" big_imgs" wx:if="{{!img}}">
-    <view class="conter_button" bindtap="chooseimage">
-      <image src="../../style/img/jia.png"></image>
+
+  <view class="conter_img">
+    <image src="../../style/img/pai.jpg"></image>
+  </view>
+  <view class="top_title" wx:if="{{sure == true}}">
+    今 日 已 打 卡 </view>
+
+  <view class="top_title" wx:if="{{sure == false}}">
+    今 日 未 打 卡 </view>
+  <view class="waibig_imgs">
+
+    <view class="punch">
+      <view class="punch_top">
+        <view class="punch_top_left">
+          <image src="../../style/img/ri3.png" style="margin-right:20rpx;"></image> 本周打卡 <span style="color:#47d5eb">{{continuity.length}}</span> 天</view>
+        <view class="punch_top_right" bindtap="chakan"> 查看更多
+          <image src=" ../../style/img/right1.png"></image>
+        </view>
+      </view>
+      <view class="punch_bottom">
+        <!-- 连续打卡上面显示加数字 -->
+        <view class="punch_bottom_one">
+          <!-- <view class="fontNumber" wx:for="{{numberList}}"></view> -->
+        </view>
+        <!-- 连续打卡上面显示条形颜色 -->
+        <view class="punch_bottom_tws">
+          <view class="punch_bottom_one_tiao" wx:for="{{numberList}}">
+           
+            <view class="punch_bottom_one_color_two" style="background:{{item.sure == '打卡'? '#47d5eb':' #e4efff' }}">
+              <view class="punch_bottom_one_color_two_quan" wx:if="{{item.number !=3}}"></view>
+         
+              <text class="fontNumber" wx:if="{{item.sure == '打卡' && item.day == itemAsel}}"  animation="{{animation}}">
+                {{item.number}}
+              </text>
+            </view>
+ <view class="punch_bottom_one_color" wx:if="{{item.day !=7}}"  style="background:{{item.sure == '打卡'? '#47d5eb':' #e4efff' }}"></view>
+          </view>
+        </view>
+        <view class="punch_bottom_one">
+          <view class="punch_bottom_one_week" wx:for="{{numberLists}}">{{item.week}}</view>
+        </view>
+      </view>
     </view>
 
+    <view class="waibig_imgs_updata">拍照上传</view>
+    <view class=" big_imgs" wx:if="{{!img}}">
+      <view class="conter_button" bindtap="chooseimage">
+        <image src="../../style/img/jia.png"></image>
+      </view>
+
+    </view>
   </view>
   <view class="zhong" wx:if="{{img}}">
     <image class="abc_img" src="../../style/img/del.png" bindtap="yincang"></image>
@@ -25,16 +63,35 @@
     <image src="{{imagePath}}" class='shengcheng'></image>
     <image style="  position: absolute;  width: 50rpx; height: 50rpx; top: 30rpx; right: 35rpx; z-index: 10" src="../../style/img/del.png" bindtap="hideImg"></image>
     <button class='baocun' bindtap='baocun'>保存相册</button>
-    <button class='baocun' bindtap='baocun'>保存相册</button>
   </view>
   <view hidden="{{maskHidden == false}}" class="mask"></view>
   <view class="canvas-box">
     <canvas style="width: 540px; height: 828px; position:fixed;top:9999px" canvas-id="mycanvas" />
   </view>
   <button class="button_bom" bindtap='formSubmit'>分享</button>
+
   <button class="button_boms" bindtap="daka">打卡</button>
+
   <van-toast id="van-toast" />
 
 </view>
 
 <van-dialog id="van-dialog" />
+<canvas canvas-id="photo_canvas" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute; top:-300px;"></canvas>
+
+<van-overlay show="{{ show }}" bind:click="onClickHide">
+  <view class="topblocl">
+    <view class="top_titless">
+      <view class="bindguan">
+        <image src="../../style/img/del.png" bindtap="delImg"></image>
+      </view>
+      <view class="tiems_font">{{newTime}}
+        <span style="font-size:25rpx;">月</span>
+      </view>
+      <view class="top_titless_font">当月打卡
+        <span style="color:#47d5eb"> {{dayStyle.length}} </span> 天</view>
+      <view class="top_titless_fonts">连续打卡获得石分宝,兑换精美礼品</view>
+    </view>
+    <calendar header="{{false}}" prev="{{false}}" next="{{false}}" show-more-days="true" calendar-style="calendar" header-style="calendar-header" board-style="calendar-board" days-color="{{dayStyle}}" weeks-type="cn" /> />
+  </view>
+</van-overlay>

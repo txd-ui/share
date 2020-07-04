@@ -49,8 +49,6 @@
   width: 162rpx;
   height: 140rpx;
   border-radius: 50%;
-  border-top: 2rpx solid #f2f2f3;
-
   text-align: center;
   box-sizing: border-box;
   padding: 6rpx;

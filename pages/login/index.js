@@ -2,6 +2,7 @@
 // 引入封装的api
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog.js';
+import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify';
 const api = require("../../service/http.js");
 Page({
 
@@ -14,19 +15,25 @@ Page({
   },
   // 获取用户手机号码
   getPhoneNumber(e) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     var that = this
     if (e.detail.errMsg == "getPhoneNumber:ok") {
       // 登陆功能
       wx.login({
         success: res => {
+    
           // 把拿到的数据传给后台获取手机号码
           api.request('GET', '/volunteer/PhoneNumber', {
             'encryptedData': e.detail.encryptedData,
             'iv': e.detail.iv,
             'codes': res.code
           }).then(res => {
+          
             // 获取到的手机号再次发送后台判断权限
             if (res.data.phoneNumber) {
+             
               wx.setStorageSync('phone', res.data.phoneNumber)
               api.request('POST', '/volunteer/getUserByWechatNumberPhone', {
                 telephone: wx.getStorageSync('phone')
@@ -39,10 +46,12 @@ Page({
                     }
                   } = res
                   if (results == 1) {
+                    wx.hideLoading()
                     wx.reLaunch({
                       url: '../index/index'
                     })
                   } else {
+                    wx.hideLoading()
                     setTimeout(() => {
                       wx.reLaunch({
                         url: '../register/index'
@@ -59,24 +68,31 @@ Page({
               }).catch(err => {
                 Toast.fail('服务器错误，请重试！');
               })
+            }else{
+     
+            }
+          }).catch(err=>{
+         
+            if (err == '错误'){
+              Notify({ background: '#fff', color: '#333', type: 'danger', message: '系统升级维护中,请稍后使用！' });
             }
           })
         },
 
       })
     } else {
-      Toast.fail('请先登录！');
+      Toast.fail('请先授权');
     }
   },
 
   // 获取用户头像信息
   getUserInfo: function (e) {
     let that = this;
-    // console.log(e)
+
     // 获取用户信息
     wx.getSetting({
       success(res) {
-        // console.log("res", res)
+    
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.getUserInfo({
@@ -94,11 +110,11 @@ Page({
               }
             },
             fail(res) {
-              console.log("获取用户信息失败", res)
+        
             }
           })
         } else {
-          console.log("未授权=====")
+   
           that.showSettingToast("请授权")
         }
       }
@@ -117,7 +133,7 @@ Page({
   onLoad: function() {
     this.showPopup()
 
-    if (wx.getStorageSync('userID')) {
+    if (wx.getStorageSync('userID') && wx.getStorageSync('phone')) {
       wx.reLaunch({
         url: '../index/index'
       })}

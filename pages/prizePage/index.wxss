@@ -1,0 +1,248 @@
+/* pages/prizePage/index.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.backImg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+}
+
+.backImg image {
+  width: 100%;
+  height: 100%;
+}
+
+.big {
+  width: 95%;
+  height: 97%;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.big_top {
+  width: 100%;
+  height: 24vh;
+}
+
+.big_top image {
+  width: 100%;
+  height: 100%;
+}
+
+.van-tabs__line {
+  background-color: var(--tabs-bottom-bar-color, #3874fc) !important;
+  width: 50% !important;
+  position: absolute;
+  bottom: 0;
+  left: -46px !important;
+  z-index: 1;
+  height: 3px;
+}
+
+.van-hairline--top-bottom:after {
+  border-width: 0 0 !important;
+}
+
+.van-tab {
+  border-right: 1px solid rgba(204, 204, 204, 0.26);
+  font-weight: bold !important;
+  font-size: 32rpx !important;
+}
+
+.van-tab:last-child {
+  border-right: none;
+}
+
+.prizeTable {
+  background: #fff;
+  margin: 20rpx;
+  width: 94%;
+
+  height: 80rpx;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.26);
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+
+.time_left {
+  width: 219rpx;
+  height: 28rpx;
+  color: #333;
+  font-size: 28rpx;
+  overflow: hidden;
+}
+.van-notice-bar {
+  width: 203rpx;
+  background: none !important;
+  height: 100% !important;
+  font-size: 24rpx !important;
+  color: #0752f7 !important;
+  font-family: '苹方常规' !important;
+}
+.prize_right {
+  font-size: 28rpx;
+ flex: 1;
+  text-align: right;
+  line-height: 40rpx;
+  height: 40rpx;
+  font-family: '苹方常规';
+  color: #333;
+  display: flex;
+}
+
+.prize_right text {
+  color: #0752f7;
+  font-size: 22rpx;
+  font-family: '苹方常规';
+  margin-right: 50rpx;
+}
+
+.prize_rights {
+  font-size: 28rpx;
+  width: 150rpx;
+  text-align: center;
+  line-height: 40rpx;
+  height: 40rpx;
+  background: #ccc;
+  color: #fff;
+  border-radius: 10rpx;
+}
+
+.tabs_height {
+  height: 57vh;
+  overflow: auto;
+  display: flex;
+  background: #f3f3f3;
+  flex-wrap: wrap;
+}
+
+.lunbo image {
+  border-radius: 15rpx;
+}
+
+.shppList {
+  width: 45.7%;
+  height: 400rpx;
+  background: #fff;
+  margin: 20rpx;
+  position: relative;
+}
+
+.shppList:nth-child(2n) {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.shopImg {
+  width: 100%;
+  height: 224rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.shopImg image {
+  width: 100%;
+  height: 100%;
+}
+
+.font_block {
+  width: 100%;
+  height: 164rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.font_block_top {
+  font-family: '苹方粗体';
+  font-size: 24rpx;
+}
+
+.font_block_center {
+  font-size: 16rpx;
+  color: #185ef8;
+  font-family: '苹方常规';
+  margin: 8rpx;
+}
+
+.font_block_center text {
+  font-size: 30rpx;
+  color: #185ef8;
+  font-family: '苹方常规';
+}
+
+.font_block_bottom {
+  width: 100%;
+  margin: 8rpx;
+}
+
+.font_block_bottom button {
+  width: 237rpx;
+  height: 40rpx;
+  background: #0752f7;
+  border-radius: 20rpx;
+  border: none;
+  font-family: '苹方常规';
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 40rpx;
+}
+.tabs_heights{
+
+  box-sizing: border-box;
+  width: 100%;
+    height: 63vh;
+  display: flex;
+  background: #f3f3f3;
+  flex-direction: column;
+}
+.stock{
+  width: 120rpx;
+  height: 40rpx;
+  background: #85aafbc5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 18rpx;
+  font-family: '苹方常规';
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+}
+.tabs_height_ss{
+  width: 100%;
+  background: #f3f3f3;
+  height: 65rpx;
+  display: flex;
+  align-items: center;
+
+}
+.tabs_height_ss_one{
+  width: 123rpx;
+  height: 41rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-left: 40rpx;
+  font-size: 26rpx;
+  color: #d1d1d1;
+  font-family: '苹方粗体';
+  text-align: center;
+  line-height: 41rpx;
+}

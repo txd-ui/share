@@ -4,9 +4,10 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
-		"postcss": true,
+		"enhance": false,
+		"postcss": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
@@ -14,17 +15,25 @@
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
+		"uglifyFileName": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"bundle": true,
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"packNpmManually": false,
+		"packNpmRelationList": []
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
+	"libVersion": "2.11.3",
 	"appid": "wx7feb62c18174e67d",
 	"projectname": "miniprogram-7",
 	"debugOptions": {
@@ -55,12 +64,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": -1,
 			"list": [
 				{
-					"id": -1,
-					"name": "打卡页面",
-					"pathName": "pages/position/index",
+					"id": 0,
+					"name": "pages/release/index",
+					"pathName": "pages/release/index",
 					"query": "",
 					"scene": null
 				},
@@ -103,6 +112,126 @@
 					"id": -1,
 					"name": "pages/xin/index",
 					"pathName": "pages/xin/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "奖品兑换界面",
+					"pathName": "pages/prizePage/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "奖品领取详情页面",
+					"pathName": "pages/prizeDetail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "留言板",
+					"pathName": "pages/find/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布信息界面",
+					"pathName": "pages/message/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/myPage/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "注册",
+					"pathName": "pages/register/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/hone",
+					"pathName": "pages/home/hone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "广告",
+					"pathName": "pages/home/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "pages/release/index",
+					"pathName": "pages/release/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "我的界面",
+					"pathName": "pages/newMypage/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mailbox/index",
+					"pathName": "pages/mailbox/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "gname=83aae931-71a2-4915-897c-5b463ae13de2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "轮播图",
+					"pathName": "pages/prizePage/index",
+					"query": "gname=83aae931-71a2-4915-897c-5b463ae13de2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "抽奖页面",
+					"pathName": "pages/prizeDetail/index",
+					"query": "gname=83aae931-71a2-4915-897c-5b463ae13de2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换界面",
+					"pathName": "pages/luckdraw/index",
+					"query": "gname=83aae931-71a2-4915-897c-5b463ae13de2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户地址",
+					"pathName": "pages/address/index",
+					"query": "gname=83aae931-71a2-4915-897c-5b463ae13de2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的抽奖记录",
+					"pathName": "pages/myLuckList/index",
+					"query": "gname=83aae931-71a2-4915-897c-5b463ae13de2",
 					"scene": null
 				}
 			]

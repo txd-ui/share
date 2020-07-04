@@ -1,0 +1,29 @@
+
+<van-cell-group>
+  <van-field value="{{  cneeName }}" bind:change="oncneeName" label="姓名" border />
+</van-cell-group>
+
+
+<van-cell-group>
+  <van-field value="{{ cneePhone }}" bind:change="oncneePhone" label="手机号" border />
+</van-cell-group>
+
+
+<van-cell-group>
+  <van-field value="{{ region }}" postalCode="格式为xx省-xx市-xx区" bind:change="onregion" label="收件人地址" border />
+</van-cell-group>
+
+<van-cell-group>
+  <van-field value="{{ address }}" bind:change="onaddress" label="详细地址" border />
+</van-cell-group>
+
+<van-cell-group>
+  <van-field value="{{  postalCode }}" bind:change="onpostalCode" label="邮政编码" border />
+</van-cell-group>
+
+<view class="big_btn">
+<view class="sureBtn" bindtap="sureBtn">提交地址</view>
+<button  class="btns" bindtap='aaaaaaa' >我的地址</button>
+
+</view>
+<van-notify id="van-notify" />

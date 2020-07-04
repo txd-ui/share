@@ -9,8 +9,9 @@ Page({
     userName: '',
     userImg: '',
     show:false,
-    active: 0,
-    currentDate: '',
+    active: '小区排名',
+
+    currentDate: new Date().getTime(),
     time:'',
     times: '',
     allList:[],
@@ -40,6 +41,10 @@ Page({
     this.getRanking()
   },
   onChange(event) {
+    this.setData({
+      active: event.detail.title
+    })
+
     if(event.detail.title =='小区排名'){
       this.setData({ residentialAreas: wx.getStorageSync('residentialAreas') })
       this.getList()
@@ -54,9 +59,11 @@ Page({
       mask: true,
       icon: 'loading'
     })
-    api.request('POST','/volunteer/getAccumulatePointsList',{
+    api.request('POST','/voluteer/queryFirstExperience',{
       userID: wx.getStorageSync('userID'),
       residentialAreas: this.data.residentialAreas,
+      pagenum:'1',
+      pagesize:'50',
       monthYear:this.data.currentDate
     }).then(res=>{
       var { data: { results}} =res
@@ -66,12 +73,12 @@ Page({
   },
   // 获取排名 和积分
   getRanking(){
-    api.request('POST', '/volunteer/getAccumulatePointsByUserID', { userID: wx.getStorageSync('userID'), monthYear: this.data.currentDate}).then(res=>{
+    api.request('POST', '/voluteer/queryUserExperience', { userID: wx.getStorageSync('userID'), monthYear: this.data.currentDate}).then(res=>{
      var { data: { results}} = res
-      console.log(results)
       this.setData({
         all: results
       })
+      console.log(this.data.all)
     })
   },
   /**
@@ -106,7 +113,7 @@ Page({
       show: false,
       residentialAreas:wx.getStorageSync('residentialAreas')
     });
-    
+ 
     this.getList()
     this.getRanking()
     this.setData({

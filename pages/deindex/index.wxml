@@ -1,29 +1,22 @@
 <block>
-<view class="top_miao">
+<view class="top_miao" wx:if="{{readState == 0}}">
 <text>当前页面浏览10S阅读完成</text>
 <image class="time_img"  src="../../style/img/times.png"><text class="txt">{{countDownNum}}</text> </image>
 </view>
-<view wx:for="{{datas}}">
-<view class="title">{{item.title}}</view>
-<view style="font-size:24rpx; color:#2d7cd2; font-weight:bold; margin-top:34rpx;">石分达人</view>
-<view style="font-size:24rpx; color:#b0b0b0; margin-top:10rpx;">{{item.createTime}}</view>
-<view class="conter_block_imgs" style="background:url({{item.picture1}});   background-size:100% 100% ;   background-repeat: no-repeat" ></view>
-
-<view class="bottom_font">{{item.paragraph1}}</view>
-
-<view class="conter_block_imgs" style="background:url({{item.picture2}});   background-size:100% 100% ;   background-repeat: no-repeat" ></view>
-
-<view class="bottom_font">{{item.paragraph2}}</view>
-
-
-
-
-
-<view class="conter_block_imgs" style="background:url({{item.picture3}});   background-size:100% 100% ;   background-repeat: no-repeat" ></view>
-
-<view class="bottom_font">{{item.paragraph3}}</view>
-
-
+<view class="top_miao" wx:if="{{readState == 1}}">
+<text>当前文章已阅读</text>
 </view>
+  
+<view style="margin-top:114rpx">
+<import src="../wxParse/wxParse.wxml"/>
+<template style="margin-top:110rpx" is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+
+
+<txv-video vid="{{videoPath}}" playerid="{{videoPath}}" wx:if="{{videoPath}}"></txv-video>
+
+
+
+
 <van-dialog id="van-dialog"  />
 </block>

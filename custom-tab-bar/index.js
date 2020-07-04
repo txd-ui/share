@@ -6,7 +6,7 @@ Component({
     "list": [
       {
         "pagePath": "/pages/index/index",
-        "text": "知识学习",
+        "text": "精选资讯",
         "iconPath": "/style/taBar_img/xiangs.png",
         "selectedIconPath": "/style/taBar_img/xiang.png",
 
@@ -20,8 +20,8 @@ Component({
         "text": "打卡分享",
       },
       {
-        "pagePath": "/pages/myPage/index",
-        "text": "积分排名",
+        "pagePath": "/pages/newMypage/index",
+        "text": "达人榜",
         "iconPath": "/style/taBar_img/de.png",
         "selectedIconPath": "/style/taBar_img/ds.png",
 

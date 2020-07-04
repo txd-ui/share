@@ -1,0 +1,11 @@
+<!--pages/integralPage/index.wxml-->
+
+  <view class="backImg">
+  <image src="../../style/img/pai.jpg"></image>
+  </view>
+
+<view class="tips">
+积分线上兑换商品即将开启，敬请期待！
+我们会不定期举办线下积分兑换活动！
+活动详情会在“知识学习”推送。望您多多打卡、多多积分、多多参与！
+</view>

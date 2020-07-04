@@ -7,15 +7,15 @@
   <van-divider />
 </view>
 <view class="title">
-  即将石分达人报名系统,请确认是本人操作
+  即将进入石分达人报名系统
 </view>
 
 <view class="buttom">
   <van-icon style="vertical-align: middle" name="stop" />
-  <text style="vertical-align: middle; margin-left:20rpx">使用您的手机号登陆该应用</text>
+  <text style="vertical-align: middle; margin-left:20rpx">将获取手机号来注册您的基本信息</text>
 </view>
 <view class="buttom_button">
-<van-button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" block>确认登陆</van-button>
+<van-button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" block>一键授权</van-button>
       <van-dialog id="van-dialog" />
 </view>
 
@@ -31,3 +31,4 @@
 <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="bom"> 一键授权 </button>
 </view>
 </van-popup>
+<van-notify id="van-notify" />

@@ -345,7 +345,7 @@ const helper = {
             wx.getImageInfo({
                 src: imgPath,
                 success(res) {
-                  console.log(res)
+              
                     resolve({ imgPath, imgInfo: res, index });
                 },
                 fail(err) {

@@ -1,4 +1,5 @@
 import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog.js';
+import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify';
 var page = 1;//分页标识，第几次下拉，用户传给后台获取新的下拉数据
 Page({
 
@@ -6,24 +7,36 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show:false,
     articles: [],//文章列表数组
     flag: false,
+    imgSrc:[],
+    flags:false,
+    total:''
   },
+  onClickShow(e){
 
+    this.setData({ show: true, imgSrc: e.currentTarget.dataset.src });
+  },
+  onClickHide(){
+    this.setData({
+      show:false
+    })
+  },
  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '发现',
+      title: '领奖留言',
     })
   },
   // 点击发布按钮
   release() {
 
       wx.navigateTo({
-        url: '../release/index'
+        url: '../message/index'
       })
 
   },
@@ -70,18 +83,16 @@ Page({
       method: 'POST',
 
       success: function (res) {
+        that.setData({total: res.data.total})
+
         res.data.results.forEach(item => {
           var x = item.uploadTime.split('-')
           item.uploadTime = x[0] + '年' + x[1] + '月'
         })
 
         if (res.statusCode == 200) {//成功
-       
           if (that.data.articles.length == res.data.total) {
-            Dialog.alert({
-              title: '温馨提示',
-              message: '没有更多了...',
-            }).then(() => { });
+            Notify({ type: 'primary', message: '没有更多了！' });
           } else {
             var tmpArr = that.data.articles;
             // 这一步实现了上拉加载更多
@@ -100,12 +111,12 @@ Page({
         }
       },
       fail: function (e) {
-        console.log(e);
+
       }
     })
   },
 
-
+ 
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -118,15 +129,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.clearCache();//清本页缓存
-    this.getArticles(0);//第一次加载数据
+  
+  
+      
+     
+      this.getArticles(0);//第一次加载数据
+      this.clearCache();//清本页缓存
+   
+  
+    
+    
+  
+    
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+  
   },
 
   /**

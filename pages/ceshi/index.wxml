@@ -1,0 +1,5 @@
+<!--pages/ceshi/index.wxml-->
+
+<van-transition show="{{ show }}" custom-class="block" bind:before-enter="start">
+<view class="tec"></view>
+</van-transition>

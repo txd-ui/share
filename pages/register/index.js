@@ -52,10 +52,10 @@ Page({
     wx.setNavigationBarTitle({
       title: '注册',
     })
-  },
+  }, 
   // 街道显示
   showPopup() {
-
+  
     this.setData({ show: true });
   },
   //  街道弹框关闭
@@ -64,6 +64,11 @@ Page({
   },
   //  街道弹框确定
   onConfirm(event) {
+    this.setData({
+      communityColumns: [],
+      communityVal:'',
+      residentialVal:''
+    })
     const { value } = event.detail;
     this.setData({ ganmeVal: value, show: false })
     // 请求社区数据
@@ -96,6 +101,10 @@ Page({
   },
   // 社区确定
   communityConfirm(e) {
+    this.setData({
+      residentialColumns:[],
+      residentialVal:''
+    })
     const { value } = e.detail;
     this.setData({ communityVal: value, communityShow: false })
     // 请求小区数据
@@ -180,8 +189,8 @@ Page({
         residentialAreas: this.data.residentialVal,
         community: this.data.communityVal,
         sex: this.data.gender,
-        userType:1
-
+        userType:1,
+        introducerID: wx.getStorageSync('shareID')
       }).then(res => {
         if (res.data.msg == "操作成功") {
           wx.setStorageSync('flags', false)
@@ -199,7 +208,7 @@ Page({
             wx.reLaunch({
               url: '../index/index'
             })
-          }, 3000)
+          }, 2000)
 
 
         }

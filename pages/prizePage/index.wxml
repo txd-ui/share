@@ -1,0 +1,83 @@
+<!--pages/prizePage/index.wxml-->
+<view class="backImg">
+	<image src="../../style/img/pai.jpg"></image>
+</view>
+<view class="big">
+	<view class="big_top">
+		<image mode="aspectFill" src='../../style/img/cjou2.png'></image>
+		<!-- <image src="../../style/img/1.png"></image> -->
+
+		<!-- <swiper class='lunbo' indicator-dots='true' autoplay='true' indicator-active-color="#fff" interval='4000'> -->
+		<!-- <swiper-item > -->
+		<!-- bindtap="prizeDetail" -->
+		<!-- <image mode="aspectFill" src='../../style/img/chou.png'></image>
+			</swiper-item>
+			<swiper-item>
+				<image mode="aspectFill" src='../../style/img/cjou2.png'></image>
+			</swiper-item> -->
+
+		<!-- </swiper> -->
+
+
+
+	</view>
+	<!-- 切换按钮 -->
+
+	<van-tabs active="{{selVal}}" animated swipeable bind:change="onChangeVal">
+		<!-- 好礼兑换盒子 -->
+		<van-tab title="好礼兑换" name="好礼兑换">
+
+			<view class="tabs_height_ss">
+				<view class="tabs_height_ss_one" bindtap="selectVal" style="background:{{changVal=='全部'? '#0752f7' : ''}}" data-data="全部">全部</view>
+				<view class="tabs_height_ss_one" bindtap="selectVal" style="background:{{changVal=='1-3'? '#0752f7' : ''}}" data-data="1-3">1-3</view>
+				<view class="tabs_height_ss_one" bindtap="selectVal" style="background:{{changVal=='4-7'? '#0752f7' : ''}}" data-data="4-7">4-7</view>
+				<view class="tabs_height_ss_one" bindtap="selectVal" style="background:{{changVal=='8-10'? '#0752f7' : ''}}" data-data="8-10">8-10</view>
+			</view>
+			<view class="tabs_height">
+
+				<view class="shppList" wx:for="{{sopList}}">
+					<view class="stock">库存{{item.stock}}件</view>
+					<view class="shopImg">
+						<image mode="aspectFit" src="{{item.pictureUrl}}"></image>
+					</view>
+					<!-- 描述盒子 -->
+					<view class="font_block">
+						<view class="font_block_top"> {{item.prizeName}}</view>
+						<view class="font_block_center">
+							<text>{{item.points}}</text>石分宝 </view>
+						<view class="font_block_bottom">
+							<button bindtap="exchange" wx:if="{{level>= item.level}}" data-data="{{item.prizeType}}">兑换</button>
+							<button bindtap="exchange" disabled="true" wx:if="{{level< item.level}}" data-data="{{item.prizeType}}">权限不足</button>
+						</view>
+					</view>
+
+				</view>
+				<!-- 商品盒子 -->
+
+			</view>
+		</van-tab>
+		<!-- 好礼兑换盒子 -->
+
+		<!-- 我的兑换盒子 -->
+		<van-tab title="我的兑换" name="我的兑换">
+			<view class="tabs_heights">
+
+				<view class="prizeTable" wx:for="{{getmyUserList}}">
+					<view class="time_left">{{item.createTime}}</view>
+					<view class="prize_right">
+
+						<van-notice-bar speed="10" text="{{item.prizeName}}" scrollable color="#333" backgroundColor="#ccc" />已兑换</view>
+				</view>
+
+
+			</view>
+
+
+		</van-tab>
+		<!-- 我的兑换盒子 -->
+	</van-tabs>
+
+
+</view>
+<van-dialog id="van-dialog" />
+<van-notify id="van-notify" />

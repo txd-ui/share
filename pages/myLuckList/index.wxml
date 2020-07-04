@@ -1,0 +1,11 @@
+<!--pages/myLuckList/index.wxml-->
+<view class="one_block" wx:for="{{myLuckLists}}">
+	<view class="left_Img">
+		<image mode="aspectFit" src="{{item.pictureUrl}}"></image>
+	</view>
+	<view class="right_Font">
+		<view class="top_time">{{item.createTime}}</view>
+		<view class="top_time">{{item.prizeName}}</view>
+
+	</view>
+</view>

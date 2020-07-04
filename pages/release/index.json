@@ -4,7 +4,10 @@
     "van-button": "@vant/weapp/button/index",
     "van-toast": "@vant/weapp/toast/index",
     "poster": "/miniprogram_dist/poster/index",
-    "van-dialog": "@vant/weapp/dialog/index"
-
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-transition": "@vant/weapp/transition/index",
+    "calendar": "plugin://calendar/calendar",
+  "van-overlay": "@vant/weapp/overlay/index"
   }
+  
 }

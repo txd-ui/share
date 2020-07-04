@@ -3,6 +3,7 @@
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-datetime-picker": "@vant/weapp/datetime-picker/index",
-      "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index"
   }
 }

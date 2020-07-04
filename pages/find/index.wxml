@@ -1,4 +1,8 @@
 <!-- 发现界面 -->
+ <view class="bottom_block">
+ <image src="../../style/img/pai.jpg"></image>
+ </view>
+<view class="toips_blokc">总留言数：{{total}}条</view>
 <view class="big_block" wx:for="{{articles}}">
   <view class="top_user">
     <!-- 头像 -->
@@ -7,41 +11,44 @@
       <!-- 姓名 -->
       <view class="username">{{item.userName}} </view>
       <!-- 性别 -->
-      <view  class="usersex" wx:if="{{item.sex == '男'}}">
+          <text class="userTimg" style="  margin-right:10rpx; margin-top:20rpx; vertical-align: middle;">{{item.uploadTime}} </text>
+      <!-- <view  class="usersex" wx:if="{{item.sex == '男'}}">
         <image  src="../../style/img/yuan.png"></image>
-      </view>
-      <view  class="usersexs"  wx:if="{{item.sex == '女'}}">
+      </view> -->
+      <!-- <view  class="usersexs"  wx:if="{{item.sex == '女'}}">
         <image wx:if="{{item.sex == '男'}}" src="../../style/img/yuan.png"></image>
            <image src="../../style/img/yuan.png"></image>
-      </view>
+      </view> -->
     </view>
     <!-- 分享 -->
-    <view class="share">
+    <!-- <view class="share">
       <image src="../../style/img/fen.png"></image>
-    </view>
+    </view> -->
   </view>
   <!-- 中间文字信息 -->
   <view class="center_size;" style=" margin-top:10rpx;"> {{item.information}}</view>
   <!-- 中间的大图片 -->
-  <view class="big_img_center"  >
+  <view class="big_img_center" wx:if="{{item.picturePath}}" >
     <!-- <image src="{{item.picturePath}}"></image> -->
-    <van-image
-    fit="fill"
+    <image
+   bindtap='onClickShow'
+   data-src="{{item.picturePath}}"
+    mode="aspectFill"
   src="{{item.picturePath}}"
 />
   </view>
   <!-- 最下面的一行信息 -->
-  <view class="buttom_xin">
+  <!-- <view class="buttom_xin"> -->
     <!-- 时间 -->
-    <text style="  margin-right:10rpx; vertical-align: middle;">{{item.uploadTime}} </text>
-    <image src="../../style/img/position.png"></image>
-    <text style="color:#a9a9a9; vertical-align: middle;">{{item.position}}</text>
+
+    <!-- <image src="../../style/img/position.png"></image> -->
+    <!-- <text style="color:#a9a9a9; vertical-align: middle;">{{item.position}}</text> -->
  
-    <image style="margin-left:70rpx; " src="../../style/img/zan.png"></image>
-    <text style=" vertical-align: middle; color:#a9a9a9">10</text>
-    <image style="margin-left:20rpx; width:28rpx " src="../../style/img/xin.png"></image>
-    <text style=" vertical-align: middle; color:#a9a9a9">50</text>
-  </view>
+    <!-- <image style="margin-left:70rpx; " src="../../style/img/zan.png"></image> -->
+    <!-- <text style=" vertical-align: middle; color:#a9a9a9">10</text> -->
+    <!-- <image style="margin-left:20rpx; width:28rpx " src="../../style/img/xin.png"></image> -->
+    <!-- <text style=" vertical-align: middle; color:#a9a9a9">50</text> -->
+  <!-- </view> -->
 
 </view>
 <van-dialog id="van-dialog" />
@@ -50,3 +57,16 @@
 <view>发布</view>
 
 </view>
+<van-notify id="van-notify" />
+
+<van-overlay show="{{ show }}" bind:click="onClickHide">
+ <view class="dd">
+  <image
+    mode="aspectFit"
+  src="{{imgSrc}}"
+/>
+ </view>
+
+
+
+</van-overlay>

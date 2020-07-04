@@ -1,124 +1,285 @@
-page {
-  background: #f6f6f6;
-}
-
-.van-tabs__line {
-  background: #3079d5 !important;
-}
-
-.van-tabs__scroll {
-  background-color: #f6f6f6 !important;
-  background-color: var(--tabs-nav-background-color, #f6f6f6) !important;
-}
-
-.top_block {
-  width: 710rpx;
-  margin: 0 auto;
-  height: 260rpx;
-  border-radius: 20rpx;
-  background: #fff;
-}
-
-.topNav {
+page{
   width: 100%;
-  height: 85rpx;
-  border-bottom: 1px solid #cdcdcd;
-  line-height: 85rpx;
-  padding-left: 30rpx;
-  box-sizing: border-box;
-  font-size: 36rpx;
-  font-weight: bold;
+  height: 100%；
 }
 
-.left {
-  float: left;
-  vertical-align: middle;
+.big_background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.big_background image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.white_top_block {
+  width: 690rpx;
+  background: #fff;
+  height: 428rpx;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 118rpx;
+  
+  border-radius: 20rpx;
+}
+
+.userImg {
+  width: 170rpx;
+  height: 170rpx;
+  border: 3rpx solid #efefef;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -87rpx;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.userImg image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+
+.time_block {
+  width: 610rpx;
+  height: 42rpx;
+  z-index: -100;
+  position: absolute;
+  top: 64rpx;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .right {
-  float: right;
-  margin-right: 41rpx;
-  vertical-align: middle;
+  width: 30rpx;
+  height: 36rpx;
 }
 
 .right image {
   width: 30rpx;
   height: 36rpx;
 }
-.bottom_nav{
-  width: 100%;
-  height: 170rpx;
-  display: flex;
+
+.left {
+  float: left;
+  font-size: 36rpx;
+  color: #333;
+  font-family: '苹方粗体';
+  font-weight: bold;
+}
+
+.right {
+  float: right;
+}
+
+.userName {
+  width: 200rpx;
+  margin: 0 auto;
+  height: 36rpx;
   text-align: center;
+  position: absolute;
+  top: 130rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+  font-family: 'DengXian-Bold';
 }
-.one{
+
+.center_block {
+  width: 100%;
+  height: 160rpx;
+  border-top: 4rpx solid #f0f0f0;
+  border-bottom: 4rpx solid #f0f0f0;
+  position: absolute;
+  top: 163rpx;
+  display: flex;
+  margin-top: 16rpx;
+  align-items: center;
+}
+
+.center_block_left {
   flex: 1;
-  padding-top:30rpx;
-  box-sizing: border-box; 
+  border-right: 1px solid #f0f0f0;
+  text-align: center;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.two{
+
+.center_block_left_ranking {
   flex: 1;
-   padding-top:15rpx;
-  box-sizing: border-box; 
-}
-.three{
-  flex: 1;
-    padding-top:30rpx;
-  box-sizing: border-box; 
-}
-.one-size{
-  font-family: '苹方常规';
+  color: #333;
   font-size: 32rpx;
+  font-family: '平方粗体';
   font-weight: bold;
 }
-.one-sizes{
-  font-family: '苹方常规';
-  font-size: 48rpx;
-  margin-top: 20rpx;
+
+.center_block_left_Numb {
+  flex: 1;
   color: #006fb9;
+  font-size: 48rpx;
+  font-family: '平方粗体';
 }
-.two image{
-  width: 90rpx;
-  height: 90rpx;
-  border-radius: 50%;
-}
-.button_back{
-  margin: 20rpx auto;
-  width: 710rpx;
-  min-height: 850rpx;
-  background: url('http://192.168.1.120:8086/garbageSort/rankingbackground.png') no-repeat;
-  background-size: 100% 100%;
-}
-.topNavs{
-  width: 100%;
-  height: 90rpx;
-  border-bottom: 1px solid #eae9e9;
+
+.center_block_right {
+  flex: 1;
+  height: 120rpx;
   display: flex;
   text-align: center;
-
+  height: 120rpx;
+  flex-direction: column;
+  align-items: center;
 }
-.one{
+
+.center_block_right_integral {
   flex: 1;
-  font-size: 36rpx;
-  font-family: '苹方常规';
+  color: #333;
+  font-size: 32rpx;
+  font-family: '平方粗体';
   font-weight: bold;
 }
-.topNavs_size{
-    width: 100%;
-  height: 90rpx;
 
+.center_block_right_Number {
+  flex: 1;
+  color: #006fb9;
+  font-size: 48rpx;
+  font-family: '平方粗体';
+}
+
+/* tab栏的切换 */
+
+.tabColumn {
+  width: 100%;
+  height: 70rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  position: absolute;
+  bottom: 10rpx;
   display: flex;
+  align-items: center;
+}
+
+.van-tabs__scroll {
+  background-color: '' !important;
+  background-color: var(--tabs-nav-background-color, none) !important;
+}
+
+.van-hairline--top-bottom:after {
+  border-width: 0 0 !important;
+  box-sizing:border-box;
+}
+.van-notice-bar{
+  height: 0 !important;
+}
+/* 下面的白框盒子 */
+
+.bootom_white_block {
+  width: 690rpx;
+  height: 52vh;
+  background: RGB(255, 255, 255);
+  overflow: auto;
+  border-radius: 20rpx;
+  margin: 0 auto;
+  position: relative;
+  top: 566rpx;
+  box-sizing: border-box;
+}
+
+.bootom_white_block .bootom_white_block_img {
+  width: 690rpx;
+  height:  52vh;
+  position: fixed;
+
+}
+
+.top_block {
+  background: #fff;
+  width: 92%;
+  height: 80rpx;
+  border-bottom: 2rpx solid RGB(234, 233, 233);
+  display: flex;
+  align-items: center;
+  flex-direction: center;
+  z-index: 200;
+  font-size: 36rpx;
+  font-family: '苹方粗体';
+  font-weight: bold;
+  position: fixed;
+  margin-bottom: 80rpx;
+}
+.van-notice-bar__wrap{
+  padding-left: 20rpx !important;
+  box-sizing: border-box !important;
+  
+}
+
+.top_block_one {
+  flex: 1;
   text-align: center;
 }
-.ones{
-  line-height: 90rpx;
-  flex: 1;
-  font-size: 36rpx;
-  font-family: '苹方常规';
 
+.top_block_two {
+  flex: 1;
+  text-align: center;
+  padding-right: 20rpx;
+  box-sizing: border-box;
 }
-.ones image{
+
+.top_block_three {
+  flex: 1;
+  text-align: center;
+}
+
+.top_content {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+
+  font-size: 29rpx;
+  font-family: '苹方粗体';
+  position: relative;
+  z-index: 2;
+  justify-content: center;
+}
+
+.top_content_one {
+flex: 1;
+ text-align: center;
+ display: flex;
+  align-items: center;
+ justify-content: center;
+  box-sizing: border-box;
+}
+
+.top_content_two {
+  flex: 1;
+  text-align: center;
+}
+
+.top_content_three {
+flex: 1;
+  text-align: center;
+}
+.top_content_one .top_content_one_img{
   width: 51rpx;
   height: 61rpx;
-  margin-top: 18rpx;
+  margin-right: 10rpx;
+}
+.van-tabs__line {
+
+  height: 8rpx  !important;
+  margin-bottom: 10rpx  !important;
 }

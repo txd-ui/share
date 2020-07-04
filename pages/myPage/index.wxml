@@ -1,76 +1,136 @@
-<!--pages/myPage/index.wxml-->
-<view class="big_img">
+<view class="big_background">
+  <image src="../../style/img/pai.jpg"></image>
+  <view class="big_block">
+    <!-- 上面的盒子 -->
+    <view class="big_block_top">
+      <!-- 用户的头像 -->
+      <view class="userImg">
+        <view class="userImg_center">
+          <image src="{{userImg}}"></image>
+        </view>
+      </view>
+      <!-- 用户名 -->
 
-  <view class="top_userName">
-    <view class="userName">
-      <image src="{{userImg}}"></image>
+      <view class="userName">
+        <van-notice-bar speed="10" color="#333" backgroundColor="#fff" text="{{userName}}" delay="2" />
+      </view>
+      <!-- 电话 -->
+      <view class="userPhone">
+        {{phone}}
+      </view>
+      <!-- 连续打卡盒子 -->
+      <view class="punch">
+        <view class="punch_title">您已连续打卡
+          <text style="color:RGB(0,111,185)">{{continuity}}</text> 天</view>
+
+        <view class="punch_block">
+          <block wx:for="{{dayAll}}">
+            <view class="punch_block_title" style="background:{{continuity >=item.day? 'RGB(255,201,67)':'RGB(220,220,220)' }}">
+              <view class="punch_block_title_top" wx:if="{{continuity <item.day}}">{{item.day}}</view>
+              <view class="punch_block_title_top" style="color: #fff; font-weight;" wx:if="{{continuity >=item.day}}">{{item.day}}</view>
+
+              <view class="punch_block_title_bottom" wx:if="{{continuity <item.day}}">
+                <image src="../../style/img/jin.png"></image>
+              </view>
+              <view class="punch_block_title_bottom" wx:if="{{continuity >=item.day && item.day !=7}}">
+                <image src="../../style/img/gou.png"></image>
+              </view>
+              <view class="punch_block_title_bottom" wx:if="{{continuity >=7  && item.day >=7}}">
+                <image src="../../style/img/li.png"></image>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view> 
+      <!-- 结束 -->
+      <!-- 积分 -->
+      <view class="ranking">
+        <view class="ranking_left">
+          <image src="../../style/img/cener.png"></image>
+          <view class="zhe">
+            <view class="top"> 本月积分</view>
+            <view class="conter" wx:if="{{userLsit[0].points}}">{{userLsit[0].points}}</view>
+            <view class="conter" wx:if="{{!userLsit[0].points}}">0</view>
+            <view class="bottom" wx:if="{{sumlist[0].accumulatePoints}}">累计积分：{{sumlist[0].accumulatePoints}} </view>
+            <view class="bottom" wx:if="{{!sumlist[0].accumulatePoints}}">累计积分：无</view>
+          </view>
+        </view>
+        <view class="heng"></view>
+        <view class="ranking_right">
+          <image src="../../style/img/cener.png"></image>
+          <view class="zhe">
+            <view class="top"> 本月全区排名</view>
+            <view class="conter" wx:if="{{userLsit[0].ranking}}">{{userLsit[0].ranking}}</view>
+            <view class="conter" wx:if="{{!userLsit[0].ranking}}">无</view>
+            <view class="bottom" wx:if="{{oldList[0].ranking}}">历史最高：{{oldList[0].ranking}}</view>
+            <view class="bottom" wx:if="{{!oldList[0].ranking}}">历史最高：无</view>
+          </view>
+        </view>
+      </view>
+    
     </view>
-    <view class="userphone">
-      <view style="margin-bottom:5rpx;">{{userName}}</view>
-      <view>{{phone}}</view>
-    </view>
+
+ <view class="bottom_block">
+    <!-- <!-- 我的打卡记录<!-- 我的打卡记录 -->
+      <view class="jilu" bindtap="detailed">
+
+        <view class="jilu_img">
+          <image src="../../style/img/la.png"></image>
+        </view>
+        <view class="jilu_size">
+          <text style="  font-size:30rpx; font-family: '苹方常规'">我的打卡记录</text>
+        </view>
+        <view class="jilu_img_two">
+          <image s src="../../style/img/right.png"></image>
+        </view>
+      </view> 
+
+      <!-- 排行榜 -->
+
+      <view class="jilu" bindtap="rankingList">
+
+        <view class="jilu_img">
+          <image src="../../style/img/la2.png"></image>
+        </view>
+        <view class="jilu_size">
+          <text style="  font-size:30rpx; font-family: '苹方常规'">排行榜</text>
+        </view>
+        <view class="jilu_img_two">
+          <image s src="../../style/img/right.png"></image>
+        </view>
+      </view>
+
+         <view class="rankingLists" bindtap="prize">
+
+        <view class="rankingList_img">
+          <image src="../../style/img/li1.png"></image>
+        </view>
+        <view class="rankingList_size">
+          <text style="  font-size:30rpx; font-family: '苹方常规'">奖品领取</text>
+        </view>
+        <view class="rankingList_img_two">
+          <image s src="../../style/img/right.png"></image>
+        </view>
+      </view> 
+      <!-- 奖品领取 -->
+
+      <view class="receivePrize" bindtap="prizes">
+
+        <view class="rankingList_img">
+          <image src="../../style/img/liu.png"></image>
+        </view>
+        <view class="rankingList_size">
+          <text style="  font-size:30rpx; font-family: '苹方常规'">领奖留言</text>
+        </view>
+        <view class="rankingList_img_two">
+          <image s src="../../style/img/right.png"></image>
+        </view>
+      </view> 
+  
+  </view>
+
+
 
   </view>
-  <view class="pai">
-    <view class="da_size">您已连续打卡
-      <text style="color:#e6a51e">{{continuity}}</text> 天</view>
-    <view class="item_time" style="background:  {{ continuity == 1 || continuity == 2 || continuity == 3 || continuity == 4 || continuity == 5 || continuity == 6 || continuity == 7? '#fad055' :  '' }}">
-      <van-icon name="success" wx:if="{{continuity == 1 || continuity == 2 || continuity == 3 || continuity == 4 || continuity == 5 || continuity == 6 || continuity == 7}}" /> </view>
-    <view class="divLine"></view>
-    <view class="item_time" style="background:  {{ continuity == 2 || continuity == 3 || continuity == 4 || continuity == 5 || continuity == 6 || continuity == 7? '#fad055' :  '' }}">
-      <van-icon name="success" wx:if="{{continuity == 2 || continuity == 3 || continuity == 4 || continuity == 5 || continuity == 6 || continuity == 7}}" />
-    </view>
-    <view class="divLine"></view>
-    <view class="item_time" style="background:  {{  continuity == 3 || continuity == 4 || continuity == 5 || continuity == 6 || continuity == 7? '#fad055' :  '' }}">
-      <van-icon name="success" wx:if="{{ continuity == 3 || continuity == 4 || continuity == 5 || continuity == 6 || continuity == 7}}" />
-    </view>
-    <view class="divLine"></view>
-    <view class="item_time" style="background:  {{   continuity == 4 || continuity == 5 || continuity == 6 || continuity == 7? '#fad055' :  '' }}">
-      <van-icon name="success" wx:if="{{  continuity == 4 || continuity == 5 || continuity == 6 || continuity == 7}}" />
-    </view>
-    <view class="divLine"></view>
-    <view class="item_time" style="background:  {{   continuity == 5 || continuity == 6 || continuity == 7? '#fad055' :  '' }}">
-      <van-icon name="success" wx:if="{{   continuity == 5 || continuity == 6 || continuity == 7}}" />
-    </view>
-    <view class="divLine"></view>
-    <view class="item_time" style="background:  {{    continuity == 6 || continuity == 7? '#fad055' :  '' }}">
-      <van-icon name="success" wx:if="{{    continuity == 6 || continuity == 7}}" />
-    </view>
-    <view class="divLine"></view>
-    <view class="item_time" style="background:  {{     continuity == 7? '#fad055' :  '' }}">
-      <van-icon name="success" wx:if="{{     continuity == 7}}" />
-    </view>
-
-  </view>
-  <!-- 积分和排名 -->
-  <view class="ranking">
-
-    <view class="left_font">
-      <view class="left_size">本月积分</view>
-      <view class="left_number" wx:if="{{userLsit[0].points}}">{{userLsit[0].points}}</view>
-      <view class="left_number" wx:if="{{!userLsit[0].points}}">无</view>
-      <view class="left_sum" wx:if="{{sumlist[0].accumulatePoints}}">累计积分：{{sumlist[0].accumulatePoints}}</view>
-      <view class="left_sum" wx:if="{{!sumlist[0].accumulatePoints}}">累计积分：无</view>
-    </view>
-    <view class="right_font">
-      <view class="left_size">本月排名</view>
-      <view class="left_number" wx:if="{{userLsit[0].ranking}}">{{userLsit[0].ranking}}</view>
-      <view class="left_number" wx:if="{{!userLsit[0].ranking}}">无</view>
-      <view class="left_sum" wx:if="{{oldList[0].ranking}}">历史最高：{{oldList[0].ranking}}</view>
-      <view class="left_sum" wx:if="{{!oldList[0].ranking}}">历史最高：无</view>
-    </view>
-  </view>
-  <!-- 我的打卡记录 -->
-  <view class="tiao" bindtap="detailed">
-    <image src="../../style/taBar_img/da.png"></image>
-    <text style="vertical-align: middle;">我的打卡记录</text>
-    <image style="float:right;   margin-top: 25rpx;" src="../../style/img/right.png"></image>
-  </view>
-  <!-- 跳转排行榜 -->
-  <view class="tiaos" bindtap="rankingList">
-    <image src="../../style/img/pai.png"></image>
-    <text style="vertical-align: middle;">排行榜</text>
-    <image style="float:right;   margin-top: 25rpx;" src="../../style/img/right.png"></image>
-  </view>
-
 </view>
+<van-dialog id="van-dialog" />

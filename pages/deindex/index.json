@@ -1,7 +1,7 @@
 {
   "usingComponents": {
-      "van-circle": "@vant/weapp/circle/index",
-        "van-dialog": "@vant/weapp/dialog/index"
-        
+    "van-circle": "@vant/weapp/circle/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+        "txv-video": "plugin://tencentvideo/video"
   }
 }

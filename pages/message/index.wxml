@@ -1,0 +1,28 @@
+<!--pages/message/index.wxml-->
+
+<view class="bottom_block">
+  <image src="../../style/img/pai.jpg"></image>
+</view>
+
+<view class="big_block">
+  <view class="top_block">写留言</view>
+  <view class="text_block">
+    <view class="text_content">
+      <view class="text_contents">
+        <van-cell-group>
+        <van-field value="{{ messageVal }}" bind:change="changVal"   maxlength="200" show-word-limit type="textarea" placeholder="请输入留言..." autosize border="{{ false }}" />
+        </van-cell-group>
+
+      </view>
+  </view>
+
+  <view class="img_block">
+       <image wx:if="{{imgSrc}}" bindtap="delImg" src="../../style/img/del.png" style="  position: absolute;  width: 30rpx; height: 30rpx; top: 0; right: 0; z-index: 10"></image>
+       <image wx:if="{{imgSrc}}" src="{{imgSrc}}"></image>
+    <image src="../../style/img/imgs.png"  bindtap="chooseimage"   wx:if="{{!imgSrc}}"></image>
+    <view class="upSize" wx:if="{{!imgSrc}}">上传图片</view>
+  </view>
+  </view>
+    <button class="button_block" disabled ="{{flag}}" bindtap="release">发 布</button>
+</view>
+<van-notify id="van-notify" />

@@ -1,0 +1,11 @@
+/* pages/ceshi/index.wxss */
+.tec{
+  width: 50px;
+  height: 50px;
+  background: red;
+}
+.block{
+   width: 50px;
+  height: 50px;
+  background: red;
+}

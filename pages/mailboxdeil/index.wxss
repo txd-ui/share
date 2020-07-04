@@ -1,0 +1,5 @@
+/* pages/mailboxdeil/index.wxss */
+.big_block{
+  padding: 20rpx;
+  box-sizing: border-box;
+}

@@ -1,0 +1,15 @@
+/* pages/home/index.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.big_black{
+  width: 100%;
+  height: 100%;
+  background: #ccc
+}
+.big_black image{
+  width: 100%;
+  height: 100%;
+}

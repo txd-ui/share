@@ -1,0 +1,159 @@
+<view class="conter_img">
+	<image src="../../style/img/pai.jpg"></image>
+</view>
+<view class="content_block">
+	<view class="tops_white_block">
+		<view class="top_block">
+			<view class="top_block_left">
+				<!-- 头像圆盒子 -->
+				<view class="top_block_left_yuan">
+					<view class="top_block_left_title_yuan">
+						<image src="{{userImg}}"></image>
+					</view>
+				</view>
+				<!-- 头像圆盒子 -->
+				<view class="top_block_left_name">
+					<view class="top_block_left_name_top">
+
+						<van-notice-bar speed="10" text="{{userName}}" scrollable color="#333" backgroundColor="#ccc" style="width:100%; height:50rpx;" />
+
+					</view>
+					<view class="top_block_left_name_bottom">
+						<image mode="aspectFit" wx:if="{{level == 1}}" src="{{imgSrc[0]}}"></image>
+						<view class="top_block_left_name_bottom_blue" wx:if="{{level == 1}}">生铁达人</view>
+
+						<image mode="aspectFit" wx:if="{{level == 2}}" src="{{imgSrc[1]}}"></image>
+						<view class="top_block_left_name_bottom_blue" wx:if="{{level == 2}}">精钢达人</view>
+
+						<image mode="aspectFit" wx:if="{{level == 3}}" src="{{imgSrc[2]}}"></image>
+						<view class="top_block_left_name_bottom_blue" wx:if="{{level == 3}}">青铜达人</view>
+
+						<image mode="aspectFit" wx:if="{{level == 4}}" src="{{imgSrc[3]}}"></image>
+						<view class="top_block_left_name_bottom_blue" wx:if="{{level == 4}}">紫铜达人</view>
+
+						<image mode="aspectFit" wx:if="{{level == 5}}" src="{{imgSrc[4]}}"></image>
+						<view class="top_block_left_name_bottom_blue" wx:if="{{level == 5}}">白银达人</view>
+
+						<image mode="aspectFit" wx:if="{{level == 6}}" src="{{imgSrc[5]}}"></image>
+						<view class="top_block_left_name_bottom_blue" wx:if="{{level == 6}}">足银达人</view>
+
+						<image mode="aspectFit" wx:if="{{level == 7}}" src="{{imgSrc[6]}}"></image>
+						<view class="top_block_left_name_bottom_blue" wx:if="{{level == 7}}">黄金达人</view>
+
+						<image mode="aspectFit" wx:if="{{level == 8}}" src="{{imgSrc[7]}}"></image>
+						<view class="top_block_left_name_bottom_blue" wx:if="{{level == 8}}">足金达人</view>
+
+						<image mode="aspectFit" wx:if="{{level == 9}}" src="{{imgSrc[8]}}"></image>
+						<view class="top_block_left_name_bottom_blue" wx:if="{{level == 9}}">铂金达人</view>
+
+						<image mode="aspectFit" wx:if="{{level == 10}}" src="{{imgSrc[9]}}"></image>
+						<view class="top_block_left_name_bottom_blue" wx:if="{{level == 10}}">钻石达人</view>
+
+
+					</view>
+				</view>
+			</view>
+			<!-- 头像上边的盒子 -->
+			<!-- 头像中间的盒子 -->
+			<view class="top_block_center">
+
+				<!-- <van-progress pivot-text="{{readState}}/32" percentage="{{readState}}" stroke-width="30rpx" /> -->
+				<view class="progress">
+					<view class="fongs" wx:if="{{level<10 }}">{{currentExp}}/{{nextLevel}}</view>
+					<view class="fongs" wx:if="{{level ==10}}">最高级别</view>
+					<view class="progressin" style="width:{{width}}%">
+
+					</view>
+				</view>
+				<view class="top_block_center_font"> 用户达人值:{{experiences}}</view>
+
+			</view>
+			<!-- 头像中间的盒子 -->
+
+			<!-- 头像结尾的盒子 -->
+
+
+			<!-- 头像结尾的盒子 -->
+		</view>
+
+		<!-- 下面的盒子 -->
+
+		<view class="top_block_bottom">
+			<!-- <view class="top_block_bottom_one">石分宝：{{sumlist[0].points}}</view>
+      <view class="top_block_bottom_one">兑换记录</view>
+      <view class="top_block_bottom_one" bindtap="rule">兑换规则</view> -->
+			<van-tabs active="{{ active }}" color="#0752f7"  bind:change="ruleList" animated  swipeable>
+				<van-tab title="我的兑换"  name="a">
+       	 <view class="myNumeber">我的石分宝： <text style="color:#0752f7">{{sumlist[0].points}}</text> </view>
+		<view class="confirm_block">
+		
+			<view class="input_block">
+				<view class="font_Number">兑换数值</view>
+				<van-stepper value="{{ changeVal }}" integer disable-plus="{{addBtn}}" min="0" data-data="{{canVal}}" step="1" bind:blur="changVal" bind:change="onChange" />
+			</view>
+			<view class="input_block_right">可兑换次数：{{canVals}}次</view>
+
+
+		</view>
+		<view class="suerBtn" bindtap="suerBtn">立即兑换</view>
+        
+        
+        </van-tab>
+				<van-tab title="兑换记录"  name="b">
+
+									<view class="record_class" style="background:#fff">
+
+													<view class="record_class_bigs" >
+														<view class="record_class_left">兑换时间</view>
+														<view class="record_class_right">兑换次数</view>
+											
+											</view>
+
+						
+											
+											<view class="record_class_big" wx:for="{{exchangList}}" style="background:  {{ index%2 ==0? '#c6c6c62a' :  '#fff' }}">
+														<view class="record_class_left">{{item.createTime}}</view>
+														<view class="record_class_right">{{item.times}}次</view>
+											
+											</view>
+						
+
+							</view>
+		
+        </van-tab>
+				<van-tab title="兑换规则"  name="c">
+										<view class="record_class" style="background:#fff">
+								<view class="rules_block">兑换"汇率"变化如下:</view>
+								<view class="rules_blocks" wx:for="{{ruleList}}" style="background:  {{ index%2 ==0? '#c6c6c62a' :  '#fff' }}" >
+										<view class="rules_blocks_one">
+										<view style="margin-right:10rpx">{{item.serial}}</view>
+												<image mode="aspectFit" src="{{item.imgSrc}}"></image>
+												<view>{{item.name}}</view>
+										</view>
+										<view class="rules_blocks_two">
+											<text style="color:#0650f5">{{item.number}}</text>石分宝 =<text style="color:#0650f5">{{item.numbers}}</text> 达人值
+										</view>
+								
+								</view>
+								</view>
+				</van-tab>
+			</van-tabs>
+
+
+		</view>
+
+	</view>
+
+
+
+</view>
+<van-dialog id="van-dialog" />
+<van-notify id="van-notify" />
+<van-overlay show="{{ shows }}">
+	<view class="rule">
+
+
+
+	</view>
+
+</van-overlay>

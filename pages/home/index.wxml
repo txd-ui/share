@@ -1,0 +1,3 @@
+<!--pages/home/index.wxml-->
+<view class="big_black">
+<image src="../../style/img/s.jpg"></image></view>  

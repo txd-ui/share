@@ -1,6 +1,10 @@
 {
   "usingComponents": {
     "van-image": "@vant/weapp/image/index",
-    "van-progress": "@vant/weapp/progress/index"
+    "van-progress": "@vant/weapp/progress/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+      "van-notify": "@vant/weapp/notify/index"
+  
   }
 }

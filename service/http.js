@@ -1,8 +1,10 @@
 const GET = 'GET';
 const POST = 'POST';
 
-const baseURL = 'https://179l13s642.51mypc.cn';
+// const baseURL = 'https://179l13s642.51mypc.cn';
 
+// const baseURL = 'http://192.168.1.120:9051';
+const baseURL = 'http://192.168.1.110:9051';
 function request(method, url, data) {
 
   return new Promise(function (resolve, reject) {
@@ -15,7 +17,6 @@ function request(method, url, data) {
       data: method === POST ? data : data,
       header: header,
       success(res) {
-      
         //请求成功
         //判断状态码---errCode状态根据后端定义来判断
         if (res.errMsg === "request:ok") {
@@ -27,7 +28,8 @@ function request(method, url, data) {
       },
       fail(err) {
         //请求失败
-        reject(err)
+        wx.hideLoading()
+        reject('错误')
       }
     })
   })

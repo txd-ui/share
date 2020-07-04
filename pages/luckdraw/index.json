@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+      "van-notice-bar": "@vant/weapp/notice-bar/index",
+        "van-stepper": "@vant/weapp/stepper/index",
+        "van-dialog": "@vant/weapp/dialog/index",
+        "van-notify": "@vant/weapp/notify/index",
+        "van-overlay": "@vant/weapp/overlay/index",
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index"
+  }
+}
